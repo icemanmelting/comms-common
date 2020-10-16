@@ -15,10 +15,10 @@ public class ICEBased extends BaseCommand {
         super(bytebuffer);
 
         byte oilPressure = bytebuffer.get();
-        this.oilPressureLow = oilPressure == 127;
+        this.oilPressureLow = oilPressure == -1;
 
         byte sparkPlug = bytebuffer.get();
-        this.sparkPlugOn = sparkPlug == 127;
+        this.sparkPlugOn = sparkPlug == -1;
 
         this.rpm = parseIntValue(bytebuffer);
         this.fuelLevel = parseIntValue(bytebuffer);

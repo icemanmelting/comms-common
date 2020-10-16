@@ -14,25 +14,25 @@ public class BaseCommand {
 
     public BaseCommand(ByteBuffer bytebuffer) {
         byte battery = bytebuffer.get();
-        this.battery12vNotCharging = battery == 127;
+        this.battery12vNotCharging = battery == -1;
 
         byte parkingBrake = bytebuffer.get();
-        this.parkingBrakeOn = parkingBrake == 127;
+        this.parkingBrakeOn = parkingBrake == -1;
 
         byte brakes = bytebuffer.get();
-        this.brakesHydraulicFluidLevelLow = brakes == 127;
+        this.brakesHydraulicFluidLevelLow = brakes == -1;
 
         byte turningSigns = bytebuffer.get();
-        this.turningSigns = turningSigns == 127;
+        this.turningSigns = turningSigns == -1;
 
         byte absAnomaly = bytebuffer.get();
-        this.absAnomaly = absAnomaly == 127;
+        this.absAnomaly = absAnomaly == -1;
 
         byte highBeam = bytebuffer.get();
-        this.highBeamOn = highBeam == 127;
+        this.highBeamOn = highBeam == -1;
 
         byte ignition = bytebuffer.get();
-        this.ignition = ignition == 127;
+        this.ignition = ignition == -1;
 
         this.speed = parseIntValue(bytebuffer);
     }
