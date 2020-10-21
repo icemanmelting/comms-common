@@ -1,8 +1,9 @@
 package pt.iceman.middleware.cars;
 
+import java.io.Serializable;
 import java.nio.ByteBuffer;
 
-public class BaseCommand {
+public class BaseCommand implements Serializable {
     private final boolean battery12vNotCharging;
     private final boolean parkingBrakeOn;
     private final boolean brakesHydraulicFluidLevelLow;
