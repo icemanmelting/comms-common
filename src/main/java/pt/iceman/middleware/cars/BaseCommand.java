@@ -12,6 +12,7 @@ public class BaseCommand implements Serializable {
     private final boolean highBeamOn;
     private final boolean ignition;
     private final int speed;
+    private double totalDistance;
 
     public BaseCommand(ByteBuffer bytebuffer) {
         byte battery = bytebuffer.get();
@@ -76,5 +77,13 @@ public class BaseCommand implements Serializable {
 
     public int getSpeed() {
         return speed;
+    }
+
+    public double getTotalDistance() {
+        return totalDistance;
+    }
+
+    public void setTotalDistance(double totalDistance) {
+        this.totalDistance = totalDistance;
     }
 }
