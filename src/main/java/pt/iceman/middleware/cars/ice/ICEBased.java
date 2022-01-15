@@ -7,9 +7,12 @@ import java.nio.ByteBuffer;
 public class ICEBased extends BaseCommand {
     private final boolean oilPressureLow;
     private final boolean sparkPlugOn;
-    private final int rpm;
-    private final int fuelLevel;
-    private final int engineTemperature;
+    private final int rpmAnalogLevel;
+    private final int fuelAnalogLevel;
+    private final int engineTemperatureAnalogLevel;
+    private int rpm;
+    private int fuelLevel;
+    private int engineTemperature;
 
     public ICEBased(ByteBuffer bytebuffer) {
         super(bytebuffer);
@@ -20,9 +23,9 @@ public class ICEBased extends BaseCommand {
         byte sparkPlug = bytebuffer.get();
         this.sparkPlugOn = sparkPlug == -1;
 
-        this.rpm = parseIntValue(bytebuffer);
-        this.fuelLevel = parseIntValue(bytebuffer);
-        this.engineTemperature = parseIntValue(bytebuffer);
+        this.rpmAnalogLevel = parseIntValue(bytebuffer);
+        this.fuelAnalogLevel = parseIntValue(bytebuffer);
+        this.engineTemperatureAnalogLevel = parseIntValue(bytebuffer);
     }
 
     public boolean isOilPressureLow() {
@@ -33,15 +36,39 @@ public class ICEBased extends BaseCommand {
         return sparkPlugOn;
     }
 
+    public int getRpmAnalogLevel() {
+        return rpmAnalogLevel;
+    }
+
+    public int getFuelAnalogLevel() {
+        return fuelAnalogLevel;
+    }
+
+    public int getEngineTemperatureAnalogLevel() {
+        return engineTemperatureAnalogLevel;
+    }
+
     public int getRpm() {
         return rpm;
+    }
+
+    public void setRpm(int rpm) {
+        this.rpm = rpm;
     }
 
     public int getFuelLevel() {
         return fuelLevel;
     }
 
+    public void setFuelLevel(int fuelLevel) {
+        this.fuelLevel = fuelLevel;
+    }
+
     public int getEngineTemperature() {
         return engineTemperature;
+    }
+
+    public void setEngineTemperature(int engineTemperature) {
+        this.engineTemperature = engineTemperature;
     }
 }
