@@ -2,8 +2,14 @@ package pt.iceman.middleware.cars;
 
 import java.io.Serializable;
 import java.nio.ByteBuffer;
+import java.util.UUID;
 
 public class BaseCommand implements Serializable {
+    private UUID carId;
+
+    private UUID tripId;
+
+    private double tyreOffset;
     private boolean battery12vNotCharging;
     private boolean parkingBrakeOn;
     private boolean brakesHydraulicFluidLevelLow;
@@ -42,6 +48,30 @@ public class BaseCommand implements Serializable {
     }
 
     public BaseCommand() {}
+
+    public UUID getCarId() {
+        return carId;
+    }
+
+    public void setCarId(UUID carId) {
+        this.carId = carId;
+    }
+
+    public UUID getTripId() {
+        return tripId;
+    }
+
+    public void setTripId(UUID tripId) {
+        this.tripId = tripId;
+    }
+
+    public double getTyreOffset() {
+        return tyreOffset;
+    }
+
+    public void setTyreOffset(double tyreOffset) {
+        this.tyreOffset = tyreOffset;
+    }
 
     protected int parseIntValue(ByteBuffer byteBuffer) {
         byte[] byteValue = new byte[2];
