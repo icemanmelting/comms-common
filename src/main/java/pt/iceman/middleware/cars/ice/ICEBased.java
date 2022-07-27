@@ -5,11 +5,11 @@ import pt.iceman.middleware.cars.BaseCommand;
 import java.nio.ByteBuffer;
 
 public class ICEBased extends BaseCommand {
-    private final boolean oilPressureLow;
-    private final boolean sparkPlugOn;
-    private final int rpmAnalogLevel;
-    private final int fuelAnalogLevel;
-    private final int engineTemperatureAnalogLevel;
+    private boolean oilPressureLow;
+    private boolean sparkPlugOn;
+    private int rpmAnalogLevel;
+    private int fuelAnalogLevel;
+    private int engineTemperatureAnalogLevel;
     private int rpm;
     private int fuelLevel;
     private int engineTemperature;
@@ -26,6 +26,30 @@ public class ICEBased extends BaseCommand {
         this.rpmAnalogLevel = parseIntValue(bytebuffer);
         this.fuelAnalogLevel = parseIntValue(bytebuffer);
         this.engineTemperatureAnalogLevel = parseIntValue(bytebuffer);
+    }
+
+    public ICEBased() {
+        super();
+    }
+
+    public void setOilPressureLow(boolean oilPressureLow) {
+        this.oilPressureLow = oilPressureLow;
+    }
+
+    public void setSparkPlugOn(boolean sparkPlugOn) {
+        this.sparkPlugOn = sparkPlugOn;
+    }
+
+    public void setRpmAnalogLevel(int rpmAnalogLevel) {
+        this.rpmAnalogLevel = rpmAnalogLevel;
+    }
+
+    public void setFuelAnalogLevel(int fuelAnalogLevel) {
+        this.fuelAnalogLevel = fuelAnalogLevel;
+    }
+
+    public void setEngineTemperatureAnalogLevel(int engineTemperatureAnalogLevel) {
+        this.engineTemperatureAnalogLevel = engineTemperatureAnalogLevel;
     }
 
     public boolean isOilPressureLow() {

@@ -4,14 +4,14 @@ import java.io.Serializable;
 import java.nio.ByteBuffer;
 
 public class BaseCommand implements Serializable {
-    private final boolean battery12vNotCharging;
-    private final boolean parkingBrakeOn;
-    private final boolean brakesHydraulicFluidLevelLow;
-    private final boolean turningSigns;
-    private final boolean absAnomaly;
-    private final boolean highBeamOn;
-    private final boolean ignition;
-    private final int speed;
+    private boolean battery12vNotCharging;
+    private boolean parkingBrakeOn;
+    private boolean brakesHydraulicFluidLevelLow;
+    private boolean turningSigns;
+    private boolean absAnomaly;
+    private boolean highBeamOn;
+    private boolean ignition;
+    private int speed;
     private double totalDistance;
 
     public BaseCommand(ByteBuffer bytebuffer) {
@@ -39,12 +39,46 @@ public class BaseCommand implements Serializable {
         this.speed = parseIntValue(bytebuffer);
     }
 
+    public BaseCommand() {}
+
     protected int parseIntValue(ByteBuffer byteBuffer) {
         byte[] byteValue = new byte[2];
 
         byteBuffer.get(byteValue);
 
         return byteValue[0] & 0xFF | (byteValue[1] << 8 & 0xFF00);
+    }
+
+    public void setBattery12vNotCharging(boolean battery12vNotCharging) {
+        this.battery12vNotCharging = battery12vNotCharging;
+    }
+
+    public void setParkingBrakeOn(boolean parkingBrakeOn) {
+        this.parkingBrakeOn = parkingBrakeOn;
+    }
+
+    public void setBrakesHydraulicFluidLevelLow(boolean brakesHydraulicFluidLevelLow) {
+        this.brakesHydraulicFluidLevelLow = brakesHydraulicFluidLevelLow;
+    }
+
+    public void setTurningSigns(boolean turningSigns) {
+        this.turningSigns = turningSigns;
+    }
+
+    public void setAbsAnomaly(boolean absAnomaly) {
+        this.absAnomaly = absAnomaly;
+    }
+
+    public void setHighBeamOn(boolean highBeamOn) {
+        this.highBeamOn = highBeamOn;
+    }
+
+    public void setIgnition(boolean ignition) {
+        this.ignition = ignition;
+    }
+
+    public void setSpeed(int speed) {
+        this.speed = speed;
     }
 
     public boolean isBattery12vNotCharging() {
