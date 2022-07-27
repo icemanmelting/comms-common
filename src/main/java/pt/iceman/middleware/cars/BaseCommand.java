@@ -12,6 +12,8 @@ public class BaseCommand implements Serializable {
     private boolean highBeamOn;
     private boolean ignition;
     private int speed;
+
+    private double tripDistance;
     private double totalDistance;
 
     public BaseCommand(ByteBuffer bytebuffer) {
@@ -47,6 +49,14 @@ public class BaseCommand implements Serializable {
         byteBuffer.get(byteValue);
 
         return byteValue[0] & 0xFF | (byteValue[1] << 8 & 0xFF00);
+    }
+
+    public double getTripDistance() {
+        return tripDistance;
+    }
+
+    public void setTripDistance(double tripDistance) {
+        this.tripDistance = tripDistance;
     }
 
     public void setBattery12vNotCharging(boolean battery12vNotCharging) {
