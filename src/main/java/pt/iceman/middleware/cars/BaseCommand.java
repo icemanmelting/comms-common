@@ -22,6 +22,8 @@ public class BaseCommand implements Serializable {
     private double tripDistance;
     private double totalDistance;
 
+    private boolean tripSaved;
+
     public BaseCommand(ByteBuffer bytebuffer) {
         byte battery = bytebuffer.get();
         this.battery12vNotCharging = battery == -1;
@@ -159,5 +161,13 @@ public class BaseCommand implements Serializable {
 
     public void setTotalDistance(double totalDistance) {
         this.totalDistance = totalDistance;
+    }
+
+    public boolean isTripSaved() {
+        return tripSaved;
+    }
+
+    public void setTripSaved(boolean tripSaved) {
+        this.tripSaved = tripSaved;
     }
 }

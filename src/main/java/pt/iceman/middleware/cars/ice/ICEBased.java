@@ -12,7 +12,7 @@ public class ICEBased extends BaseCommand {
     private int engineTemperatureAnalogLevel;
     private int rpm;
     private int fuelLevel;
-    private int engineTemperature;
+    private double engineTemperature;
 
     public ICEBased(ByteBuffer bytebuffer) {
         super(bytebuffer);
@@ -88,11 +88,11 @@ public class ICEBased extends BaseCommand {
         this.fuelLevel = fuelLevel;
     }
 
-    public int getEngineTemperature() {
+    public double getEngineTemperature() {
         return engineTemperature;
     }
 
-    public void setEngineTemperature(int engineTemperature) {
+    public void setEngineTemperature(double engineTemperature) {
         this.engineTemperature = engineTemperature;
     }
 }
